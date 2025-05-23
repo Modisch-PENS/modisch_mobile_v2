@@ -7,27 +7,39 @@ final router = GoRouter(
   initialLocation: '/home',
   routes: [
     StatefulShellRoute.indexedStack(
-      builder: (context, state, navigationShell) => MainPage(navigationShell: navigationShell),
+      builder: (context, state, navigationShell) =>
+          MainPage(navigationShell: navigationShell),
       branches: [
-        // Branch pertama untuk tab Home
         StatefulShellBranch(
           routes: [
             GoRoute(
               path: '/home',
+              name: 'home',
               builder: (context, state) => const HomePage(),
+              routes: [
+                GoRoute(
+                  path: '/wardrobe',
+                  name: 'wardrobe',
+                  builder: (context, state) => const HomePage(), 
+                ),
+                GoRoute(
+                  path: '/outfit',
+                  
+                  builder: (context, state) => const HomePage(),
+                ),
+              ],
             ),
-          ]
+          ],
         ),
-        // Branch kedua untuk tab Planner
         StatefulShellBranch(
           routes: [
             GoRoute(
               path: '/planner',
               builder: (context, state) => const PlannerPage(),
             ),
-          ]
-        )
-      ]
-    )
-  ]
+          ],
+        ),
+      ],
+    ),
+  ],
 );

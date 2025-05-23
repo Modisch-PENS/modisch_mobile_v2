@@ -19,7 +19,6 @@ class StylishBottomBarWrapper extends StatelessWidget {
       onBeforeNavigation!();
     }
 
-    // Perform the navigation
     navigationShell.goBranch(
       index,
       initialLocation: index == navigationShell.currentIndex,
@@ -30,7 +29,7 @@ class StylishBottomBarWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return StylishBottomBar(
       items: NavigationItems.bottomBarItems,
-      option: AnimatedBarOptions(iconStyle: IconStyle.Default),
+      option: AnimatedBarOptions(iconStyle: IconStyle.Default, padding: EdgeInsets.all(8.0)),
       hasNotch: true,
       fabLocation: StylishBarFabLocation.center,
       currentIndex: navigationShell.currentIndex,
