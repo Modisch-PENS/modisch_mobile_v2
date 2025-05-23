@@ -10,28 +10,17 @@ final router = GoRouter(
   initialLocation: RouteConstants.homePath,
   routes: [
     StatefulShellRoute.indexedStack(
-      builder: (context, state, navigationShell) =>
-          MainPage(navigationShell: navigationShell),
+      builder:
+          (context, state, navigationShell) =>
+              MainPage(navigationShell: navigationShell),
       branches: [
-        // Home Branch
-        StatefulShellBranch(
+        // Home Branch dengan nested tab (wardrobe & model)
+         StatefulShellBranch(
           routes: [
             GoRoute(
               path: RouteConstants.homePath,
               name: RouteConstants.home,
               builder: (context, state) => const HomePage(),
-              routes: [
-                GoRoute(
-                  path: RouteConstants.wardrobePath,
-                  name: RouteConstants.wardrobe,
-                  builder: (context, state) => const HomePage(),
-                ),
-                GoRoute(
-                  path: RouteConstants.modelPath,
-                  name: RouteConstants.model,
-                  builder: (context, state) => const HomePage(),
-                ),
-              ],
             ),
           ],
         ),
