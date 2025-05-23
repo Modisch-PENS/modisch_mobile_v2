@@ -37,6 +37,6 @@ class AppTypography {
   static final TextStyle navbar = GoogleFonts.poppins(
     fontSize: 12,
     fontWeight: FontWeight.w500,
-    color: AppColors.fontActive,
+    // color: AppColors.fontActive,
   );
 }

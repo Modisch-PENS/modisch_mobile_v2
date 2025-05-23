@@ -10,12 +10,14 @@ class NavigationItems {
       icon: SvgPicture.asset('assets/icons/navbar/home.svg'),
       selectedIcon: SvgPicture.asset('assets/icons/navbar/home_active.svg'),
       selectedColor: AppColors.fontActive,
+      unSelectedColor: AppColors.disabled,
       title: Text('Home', style: AppTypography.navbar),
     ),
     BottomBarItem(
       icon: SvgPicture.asset('assets/icons/navbar/planner.svg'),
       selectedIcon: SvgPicture.asset('assets/icons/navbar/planner_active.svg'),
       selectedColor: AppColors.fontActive,
+      unSelectedColor: AppColors.disabled,
       title: Text('Planner', style: AppTypography.navbar),
     ),
   ];
