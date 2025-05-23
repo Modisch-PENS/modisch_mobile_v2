@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:modisch/features/main/models/menu_models.dart';
 
 class MenuData {
-  static List<MenuSection> getMenuSections(VoidCallback closeMenu) {
+  static List<MenuSection> getMenuSections(BuildContext context,VoidCallback closeMenu) {
     return [
       MenuSection(
         title: 'Clothes',
@@ -12,8 +13,9 @@ class MenuData {
             iconColor: Colors.pink.shade200,
             label: 'Add Clothes',
             onTap: () {
-              // Add navigation logic here
-              closeMenu();
+              debugPrint('Masukkk poll');
+              context.go('/add/item/image_picker');
+              // closeMenu();
             },
           ),
         ],
@@ -26,19 +28,19 @@ class MenuData {
             iconColor: Colors.black,
             label: 'Create idea',
             onTap: () {
-              // Add navigation logic here
-              closeMenu();
+              context.go('/add/outfit/canvas');
+              // closeMenu();
             },
           ),
-          MenuItem(
-            icon: Icons.calendar_today,
-            iconColor: Colors.grey,
-            label: 'Schedule OOTD',
-            onTap: () {
-              // Add navigation logic here
-              closeMenu();
-            },
-          ),
+          // MenuItem(
+          //   icon: Icons.calendar_today,
+          //   iconColor: Colors.grey,
+          //   label: 'Schedule OOTD',
+          //   onTap: () {
+          //     // Add navigation logic here
+          //     closeMenu();
+          //   },
+          // ),
         ],
       ),
     ];

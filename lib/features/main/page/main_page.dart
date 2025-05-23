@@ -24,7 +24,6 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     super.initState();
-    _initializeMenuSections();
     _menuController.addListener(_handleMenuUpdates);
   }
 
@@ -47,12 +46,14 @@ class _MainPageState extends State<MainPage> {
     }
   }
 
-  void _initializeMenuSections() {
-    _menuSections = MenuData.getMenuSections(() => _menuController.hide());
+  List<MenuSection> _getMenuSections() {
+    return MenuData.getMenuSections(context, () => _menuController.hide());
   }
 
   @override
   Widget build(BuildContext context) {
+    _menuSections = _getMenuSections();
+    
     return Scaffold(
       // extendBody: true,
       body: Stack(
