@@ -4,9 +4,9 @@ import 'package:modisch/features/main/models/menu_models.dart';
 import 'package:modisch/features/main/constants/model_data.dart';
 import 'package:modisch/features/main/widget/menu/popup_menu.dart';
 import 'package:modisch/features/main/widget/fab/animated_fab.dart';
-import 'package:modisch/features/main/controller/animated_menu_controller.dart';
 import 'package:modisch/features/main/widget/bottom_bar/stylish_bottom_bar_wrapper.dart';
 import 'package:modisch/features/main/widget/menu/menu_overlay.dart';
+import 'package:modisch/shared/widget/overlay/overlay_controller.dart';
 
 class MainPage extends StatefulWidget {
   final StatefulNavigationShell navigationShell;
@@ -18,13 +18,12 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final AnimatedMenuController _menuController = AnimatedMenuController();
+  final OverlayController _menuController = OverlayController();
   late List<MenuSection> _menuSections;
 
   @override
   void initState() {
     super.initState();
-    _initializeMenuSections();
     _menuController.addListener(_handleMenuUpdates);
   }
 
@@ -43,16 +42,18 @@ class _MainPageState extends State<MainPage> {
 
   void _closeMenuIfOpen() {
     if (_menuController.isVisible) {
-      _menuController.close();
+      _menuController.hide();
     }
   }
 
-  void _initializeMenuSections() {
-    _menuSections = MenuData.getMenuSections(() => _menuController.close());
+  List<MenuSection> _getMenuSections() {
+    return MenuData.getMenuSections(context, () => _menuController.hide());
   }
 
   @override
   Widget build(BuildContext context) {
+    _menuSections = _getMenuSections();
+    
     return Scaffold(
       // extendBody: true,
       body: Stack(
@@ -61,7 +62,7 @@ class _MainPageState extends State<MainPage> {
 
           MenuOverlay(
             isVisible: _menuController.isVisible,
-            onTap: () => _menuController.close(),
+            onTap: () => _menuController.hide(),
           ),
 
           PopupMenu(

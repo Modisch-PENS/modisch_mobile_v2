@@ -1,7 +1,6 @@
 // lib/constants/typography.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:modisch/core/constants/colors.dart';
 
 class AppTypography {
   static final TextStyle heading1 = GoogleFonts.poppins(

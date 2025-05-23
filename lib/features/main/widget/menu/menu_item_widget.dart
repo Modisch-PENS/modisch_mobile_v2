@@ -3,11 +3,8 @@ import 'package:modisch/features/main/models/menu_models.dart';
 
 class MenuItemWidget extends StatelessWidget {
   final MenuItem item;
-  
-  const MenuItemWidget({
-    super.key,
-    required this.item,
-  });
+
+  const MenuItemWidget({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +16,7 @@ class MenuItemWidget extends StatelessWidget {
           children: [
             Container(
               padding: const EdgeInsets.all(4),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-              ),
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
               child: Icon(item.icon, color: item.iconColor, size: 16),
             ),
             const SizedBox(width: 12),
