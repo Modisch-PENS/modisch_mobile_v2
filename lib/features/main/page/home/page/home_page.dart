@@ -17,31 +17,27 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentTabIndex = 0;
 
-
   @override
   Widget build(BuildContext context) {
-    debugPrint("currentTabIndex: $_currentTabIndex"); 
+    debugPrint("currentTabIndex: $_currentTabIndex");
     return Scaffold(
-      backgroundColor: Colors.grey[50],
       body: SafeArea(
         child: Column(
           children: [
-            // Header Section with Profile
             Stack(
               clipBehavior: Clip.none,
               children: [
-                // Background Container
                 Container(
                   height: 150,
                   decoration: const BoxDecoration(
                     color: AppColors.secondary,
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(30),
-                      bottomRight: Radius.circular(30),
+                      bottomLeft: Radius.circular(16),
+                      bottomRight: Radius.circular(16),
                     ),
                   ),
                 ),
-                
+
                 // Profile Card
                 Positioned(
                   top: 32,
@@ -53,42 +49,24 @@ class _HomePageState extends State<HomePage> {
                     modelsCount: 0,
                   ),
                 ),
-                
-                // Tab Selector
-                Positioned(
-                  top: 160,
-                  left: 56,
-                  right: 56,
-                  child: TabSelector(
-                    currentIndex: _currentTabIndex,
-                    onTabSelected: (index) {
-                      setState(() {
-                        _currentTabIndex = index;
-                      });
-                    },
-                  ),
-                ),
               ],
             ),
-            
-            const SizedBox(height: 120), // Space for overlapping elements
-            
-            // Category Filter Section
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 32),
-              child: CategoryChips(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+              child: TabSelector(
+                currentIndex: _currentTabIndex,
+                onTabSelected: (index) {
+                  setState(() {
+                    _currentTabIndex = index;
+                  });
+                },
+              ),
             ),
-            
-            const SizedBox(height: 20),
-            
-            // Content Area with IndexedStack for tab content
+          
             Expanded(
               child: IndexedStack(
                 index: _currentTabIndex,
-                children: const [
-                  WardrobePage(),
-                  ModelPage(),
-                ],
+                children: const [WardrobePage(), ModelPage()],
               ),
             ),
           ],
