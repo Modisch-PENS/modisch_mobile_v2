@@ -13,26 +13,28 @@ class TabSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: TabButton(
+    return Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TabButton(
             label: 'Wardrobe',
-            iconPath: 'assets/icons/home/wardrobe${currentIndex == 0 ? '_active' : ''}.svg',
+            iconPath:
+                'assets/icons/home/wardrobe${currentIndex == 0 ? '_active' : ''}.png',
             isActive: currentIndex == 0,
             onTap: () => onTabSelected(0),
           ),
-        ),
-        const SizedBox(width: 16),
-        Expanded(
-          child: TabButton(
+
+          const SizedBox(width: 16),
+          TabButton(
             label: 'Model',
-            iconPath: 'assets/icons/home/model${currentIndex == 1 ? '_active' : ''}.svg',
+            iconPath:
+                'assets/icons/home/model${currentIndex == 1 ? '_active' : ''}.png',
             isActive: currentIndex == 1,
             onTap: () => onTabSelected(1),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

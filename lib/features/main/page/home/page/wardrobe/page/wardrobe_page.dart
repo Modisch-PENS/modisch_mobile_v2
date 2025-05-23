@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:modisch/core/constants/colors.dart';
 import 'package:modisch/features/main/page/home/page/wardrobe/widget/wardrobe_item_card.dart';
+import 'package:modisch/features/main/page/home/widget/category/category_chips.dart';
 
 class WardrobePage extends StatelessWidget {
   const WardrobePage({super.key});
@@ -11,6 +11,8 @@ class WardrobePage extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 32),
       child: Column(
         children: [
+          CategoryChips(),
+          const SizedBox(height: 16),
           Expanded(
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

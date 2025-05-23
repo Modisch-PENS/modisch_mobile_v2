@@ -22,7 +22,8 @@ class TabButton extends StatelessWidget {
       onTap: onTap,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        padding: const EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        width: 120,
         decoration: BoxDecoration(
           color: isActive ? AppColors.secondary : Colors.white,
           borderRadius: BorderRadius.circular(16),
@@ -41,13 +42,10 @@ class TabButton extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(
+            Image.asset(
               iconPath,
               height: 24,
               width: 24,
-              colorFilter: isActive
-                  ? const ColorFilter.mode(AppColors.primary, BlendMode.srcIn)
-                  : null,
             ),
             const SizedBox(height: 8),
             Text(
