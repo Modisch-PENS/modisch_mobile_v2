@@ -12,17 +12,19 @@ class _AddItemPageState extends State<AddItemPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text('Add Item Page - State dipertahankan'),
-          Text('Counter: $_counter'),
-          ElevatedButton(
-            onPressed: () => setState(() => _counter++),
-            child: const Text('Tambah Counter'),
-          ),
-        ],
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('Add Item Page - State dipertahankan'),
+            Text('Counter: $_counter'),
+            ElevatedButton(
+              onPressed: () => setState(() => _counter++),
+              child: const Text('Tambah Counter'),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:modisch/core/router/route_constants.dart';
 import 'package:modisch/features/main/models/menu_models.dart';
 
 class MenuData {
@@ -14,7 +15,7 @@ class MenuData {
             label: 'Add Clothes',
             onTap: () {
               debugPrint('Masukkk poll');
-              context.go('/add/item/image_picker');
+              context.goNamed(RouteConstants.addItemImagePicker);
               // closeMenu();
             },
           ),
@@ -26,21 +27,13 @@ class MenuData {
           MenuItem(
             icon: Icons.auto_awesome,
             iconColor: Colors.black,
-            label: 'Create idea',
+            label: 'Create outfit',
             onTap: () {
-              context.go('/add/outfit/canvas');
-              // closeMenu();
+              context.goNamed(RouteConstants.addOutfitCanvas);
+              closeMenu();
             },
           ),
-          // MenuItem(
-          //   icon: Icons.calendar_today,
-          //   iconColor: Colors.grey,
-          //   label: 'Schedule OOTD',
-          //   onTap: () {
-          //     // Add navigation logic here
-          //     closeMenu();
-          //   },
-          // ),
+    
         ],
       ),
     ];
