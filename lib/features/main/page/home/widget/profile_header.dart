@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:modisch/core/constants/colors.dart';
+import 'package:modisch/features/main/page/home/page/wardrobe/provider/wardrobe_provider.dart';
 
-class ProfileHeader extends StatelessWidget {
+class ProfileHeader extends ConsumerWidget {
   final String userName;
-  final int clothesCount;
-  final int modelsCount;
 
   const ProfileHeader({
     super.key,
     required this.userName,
-    required this.clothesCount,
-    required this.modelsCount,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final clothingItems = ref.watch(wardrobeItemsProvider);
+    final clothesCount = clothingItems.length;
+    final modelsCount = 0; // You can create a separate provider for models later
+
     return Container(
       padding: const EdgeInsets.fromLTRB(24, 24, 24, 56),
       decoration: BoxDecoration(
@@ -30,7 +32,7 @@ class ProfileHeader extends StatelessWidget {
         ],
       ),
       child: Row(
-        children: [_buildAvatar(), const SizedBox(width: 16), _buildUserInfo()],
+        children: [_buildAvatar(), const SizedBox(width: 16), _buildUserInfo(clothesCount, modelsCount)],
       ),
     );
   }
@@ -43,7 +45,7 @@ class ProfileHeader extends StatelessWidget {
     );
   }
 
-  Widget _buildUserInfo() {
+  Widget _buildUserInfo(int clothesCount, int modelsCount) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

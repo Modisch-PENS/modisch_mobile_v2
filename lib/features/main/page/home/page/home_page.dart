@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:modisch/core/constants/colors.dart';
 import 'package:modisch/features/main/page/home/page/model/page/model_page.dart';
 import 'package:modisch/features/main/page/home/page/wardrobe/page/wardrobe_page.dart';
-import 'package:modisch/features/main/page/home/widget/category/category_chips.dart';
 import 'package:modisch/features/main/page/home/widget/profile_header.dart';
 import 'package:modisch/features/main/page/home/widget/tab/tab_selector.dart';
 
@@ -38,16 +37,11 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
 
-                // Profile Card
-                Positioned(
+                const Positioned(
                   top: 32,
                   left: 32,
                   right: 32,
-                  child: ProfileHeader(
-                    userName: "Salma Afifa",
-                    clothesCount: 0,
-                    modelsCount: 0,
-                  ),
+                  child: ProfileHeader(userName: "Salma Afifa"),
                 ),
               ],
             ),
@@ -62,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
-          
+
             Expanded(
               child: IndexedStack(
                 index: _currentTabIndex,
