@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:modisch/core/constants/colors.dart';
 
 class TabButton extends StatelessWidget {
