@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:modisch/core/constants/colors.dart';
+import 'package:modisch/core/constants/spacing.dart';
 import 'package:modisch/features/main/page/home/page/wardrobe/provider/wardrobe_provider.dart';
 
 class ProfileHeader extends ConsumerWidget {
@@ -32,7 +33,7 @@ class ProfileHeader extends ConsumerWidget {
         ],
       ),
       child: Row(
-        children: [_buildAvatar(), const SizedBox(width: 16), _buildUserInfo(clothesCount, modelsCount)],
+        children: [_buildAvatar(), horizontalSpace(16), _buildUserInfo(clothesCount, modelsCount)],
       ),
     );
   }
@@ -53,7 +54,7 @@ class ProfileHeader extends ConsumerWidget {
           userName,
           style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
-        const SizedBox(height: 5),
+        verticalSpace(5),
         Text(
           "Clothes : $clothesCount | Models : $modelsCount",
           style: const TextStyle(fontSize: 16, color: AppColors.fontActive),

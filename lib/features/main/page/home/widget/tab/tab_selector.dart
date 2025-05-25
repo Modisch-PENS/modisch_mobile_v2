@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modisch/core/constants/spacing.dart';
 import 'package:modisch/features/main/page/home/widget/tab/tab_button.dart';
 
 class TabSelector extends StatelessWidget {
@@ -25,7 +26,7 @@ class TabSelector extends StatelessWidget {
             onTap: () => onTabSelected(0),
           ),
 
-          const SizedBox(width: 16),
+          horizontalSpace(16),
           TabButton(
             label: 'Model',
             iconPath:

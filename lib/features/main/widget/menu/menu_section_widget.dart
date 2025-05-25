@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modisch/core/constants/spacing.dart';
 import 'package:modisch/features/main/widget/menu/menu_item_widget.dart';
 import 'package:modisch/features/main/models/menu_models.dart';
 
@@ -29,7 +30,7 @@ class MenuSectionWidget extends StatelessWidget {
         ),
         child: Column(
           children: [
-            const SizedBox(height: 10),
+            verticalSpace(10),
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
@@ -45,7 +46,7 @@ class MenuSectionWidget extends StatelessWidget {
               ),
             ),
             ...section.items.map((item) => MenuItemWidget(item: item)),
-            const SizedBox(height: 10),
+            verticalSpace(10),
           ],
         ),
       ),
