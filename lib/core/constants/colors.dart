@@ -8,7 +8,7 @@ class AppColors {
   static const Color background = Color(0xFFF7F7F7); // Abu muda
   static const Color disabled = Color(0xFFD9D9D9);
   static const Color outline = Color(0xFFFCFCFC);
-  static const Color error = Color(0xFFB00020);
+  static const Color error = Color.fromARGB(255, 255, 33, 74);
 
   static const Color onPrimary = Color(0xFFFFFFFF);
   static const Color onSecondary = Color(0xFF000000);

@@ -58,8 +58,9 @@ class WardrobeItem extends HiveObject {
 
 enum WardrobeCategory {
   all('All'),
+  dress('Dress'),
+  pants('Pants'),
   shirt('Shirt'),
-  short('Short'),
   shoes('Shoes');
 
   const WardrobeCategory(this.displayName);
