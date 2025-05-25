@@ -266,7 +266,7 @@ class _AddItemsPageState extends ConsumerState<AddItemsPage>
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.secondaryVariant.withOpacity(0.3),
+                    color: AppColors.secondaryVariant.withValues(alpha: .3),
                     blurRadius: 12,
                     offset: const Offset(0, 4),
                   ),
@@ -283,7 +283,7 @@ class _AddItemsPageState extends ConsumerState<AddItemsPage>
                       Container(
                         padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.2),
+                          color: Colors.white.withValues(alpha: .2),
                           borderRadius: BorderRadius.circular(50),
                         ),
                         child: const Icon(
@@ -305,7 +305,7 @@ class _AddItemsPageState extends ConsumerState<AddItemsPage>
                       Text(
                         'Capture with camera',
                         style: TextStyle(
-                          color: AppColors.primary.withOpacity(0.8),
+                          color: AppColors.primary.withValues(alpha: .8),
                           fontSize: 14,
                         ),
                       ),
