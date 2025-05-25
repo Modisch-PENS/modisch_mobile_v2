@@ -14,9 +14,9 @@ class MenuData {
             iconColor: Colors.pink.shade200,
             label: 'Add Clothes',
             onTap: () {
-              debugPrint('Masukkk poll');
-              context.goNamed(RouteConstants.addItemImagePicker);
-              // closeMenu();
+              debugPrint('Navigating to Add Item page');
+              context.goNamed(RouteConstants.addItems);
+              closeMenu();
             },
           ),
         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modisch/core/constants/spacing.dart';
 import 'package:modisch/features/main/models/menu_models.dart';
 
 class MenuItemWidget extends StatelessWidget {
@@ -19,7 +20,7 @@ class MenuItemWidget extends StatelessWidget {
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
               child: Icon(item.icon, color: item.iconColor, size: 16),
             ),
-            const SizedBox(width: 12),
+            horizontalSpace(12),
             Text(
               item.label,
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),

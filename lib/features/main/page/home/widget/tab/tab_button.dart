@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modisch/core/constants/colors.dart';
+import 'package:modisch/core/constants/spacing.dart';
 
 class TabButton extends StatelessWidget {
   final String label;
@@ -46,7 +47,7 @@ class TabButton extends StatelessWidget {
               height: 24,
               width: 24,
             ),
-            const SizedBox(height: 8),
+            verticalSpace(8),
             Text(
               label,
               style: TextStyle(

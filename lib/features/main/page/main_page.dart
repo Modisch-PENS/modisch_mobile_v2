@@ -50,36 +50,64 @@ class _MainPageState extends State<MainPage> {
     return MenuData.getMenuSections(context, () => _menuController.hide());
   }
 
+  // Check if current route should hide navigation
+  bool _shouldHideNavigation() {
+    final location = GoRouterState.of(context).uri.path;
+
+    // List of routes that should hide navigation
+    final hiddenNavRoutes = [
+      '/home/add-items',
+      '/home/confirm-item',
+      '/home/add-outfit-canvas',
+      '/home/add-outfit-tagging',
+    ];
+
+    return hiddenNavRoutes.any((route) => location.startsWith(route));
+  }
+
   @override
   Widget build(BuildContext context) {
     _menuSections = _getMenuSections();
-    
+    final shouldHideNav = _shouldHideNavigation();
+
     return Scaffold(
       // extendBody: true,
       body: Stack(
         children: [
           widget.navigationShell,
 
-          MenuOverlay(
-            isVisible: _menuController.isVisible,
-            onTap: () => _menuController.hide(),
-          ),
+          if (!shouldHideNav) ...[
+            MenuOverlay(
+              isVisible: _menuController.isVisible,
+              onTap: () => _menuController.hide(),
+            ),
 
-          PopupMenu(
-            isVisible: _menuController.isVisible,
-            menuSections: _menuSections,
-          ),
+            PopupMenu(
+              isVisible: _menuController.isVisible,
+              menuSections: _menuSections,
+            ),
+          ],
         ],
       ),
-      bottomNavigationBar: StylishBottomBarWrapper(
-        navigationShell: widget.navigationShell,
-        onBeforeNavigation: _closeMenuIfOpen,
-      ),
-      floatingActionButton: AnimatedFAB(
-        isMenuVisible: _menuController.isVisible,
-        onPressed: () => _menuController.toggle(),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
+      bottomNavigationBar:
+          shouldHideNav
+              ? null
+              : StylishBottomBarWrapper(
+                navigationShell: widget.navigationShell,
+                onBeforeNavigation: _closeMenuIfOpen,
+              ),
+
+      floatingActionButton:
+          shouldHideNav
+              ? null
+              : AnimatedFAB(
+                isMenuVisible: _menuController.isVisible,
+                onPressed: () => _menuController.toggle(),
+              ),
+
+      floatingActionButtonLocation:
+          shouldHideNav ? null : FloatingActionButtonLocation.centerDocked,
     );
   }
 }

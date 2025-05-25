@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:modisch/core/constants/spacing.dart';
 import 'package:modisch/features/main/page/home/page/wardrobe/provider/wardrobe_provider.dart';
 import 'package:modisch/features/main/page/home/page/wardrobe/widget/wardrobe_item_card.dart';
 import 'package:modisch/features/main/page/home/widget/category/category_chips.dart';
@@ -16,7 +17,7 @@ class WardrobePage extends ConsumerWidget {
       child: Column(
         children: [
           const CategoryChips(),
-          const SizedBox(height: 16),
+          verticalSpace(16),
           Expanded(
             child: filteredItems.isEmpty
                 ? Center(
@@ -28,7 +29,7 @@ class WardrobePage extends ConsumerWidget {
                           size: 64,
                           color: Colors.grey[400],
                         ),
-                        const SizedBox(height: 16),
+                        verticalSpace(16),
                         Text(
                           'No items found',
                           style: TextStyle(
@@ -37,7 +38,7 @@ class WardrobePage extends ConsumerWidget {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        const SizedBox(height: 8),
+                        verticalSpace(8),
                         Text(
                           'Tap the + button to add your first Wardrobe item',
                           style: TextStyle(

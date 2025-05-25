@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:modisch/core/constants/spacing.dart';
 import 'package:modisch/core/data/model/wardrobe_item.dart';
 import 'package:modisch/core/data/service/image_service.dart';
 import 'package:modisch/features/main/page/home/page/wardrobe/provider/wardrobe_provider.dart';
@@ -145,13 +146,13 @@ class _WardrobeItemCard extends ConsumerWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(height: 4),
+                  verticalSpace(4),
                   Text(
                     item.category,
                     style: TextStyle(fontSize: 12, color: Colors.grey[600]),
                   ),
                   if (item.description != null) ...[
-                    const SizedBox(height: 4),
+                    verticalSpace(4),
                     Text(
                       item.description!,
                       style: TextStyle(fontSize: 11, color: Colors.grey[500]),
@@ -212,7 +213,7 @@ class _EmptyItemCard extends StatelessWidget {
                   'Masih kosong',
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
                 ),
-                const SizedBox(height: 4),
+                verticalSpace(4),
                 Text(
                   'tambah baju\n(tombol + untuk\nmenuju ke add items)',
                   style: TextStyle(fontSize: 12, color: Colors.grey[600]),
@@ -300,7 +301,7 @@ class _ItemDetailsBottomSheet extends ConsumerWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  verticalSpace(8),
                   Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 12,
@@ -319,7 +320,7 @@ class _ItemDetailsBottomSheet extends ConsumerWidget {
                     ),
                   ),
                   if (item.description != null) ...[
-                    const SizedBox(height: 16),
+                    verticalSpace(16),
                     const Text(
                       'Description',
                       style: TextStyle(
@@ -327,7 +328,7 @@ class _ItemDetailsBottomSheet extends ConsumerWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    verticalSpace(8),
                     Text(
                       item.description!,
                       style: TextStyle(

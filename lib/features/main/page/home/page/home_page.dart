@@ -18,52 +18,54 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint("currentTabIndex: $_currentTabIndex");
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Container(
-                  height: 150,
-                  decoration: const BoxDecoration(
-                    color: AppColors.secondary,
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(16),
-                      bottomRight: Radius.circular(16),
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 32),
+          child: Column(
+            children: [
+              Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Container(
+                    height: 150,
+                    decoration: const BoxDecoration(
+                      color: AppColors.secondary,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(16),
+                        bottomRight: Radius.circular(16),
+                      ),
                     ),
                   ),
-                ),
 
-                const Positioned(
-                  top: 32,
-                  left: 32,
-                  right: 32,
-                  child: ProfileHeader(userName: "Salma Afifa"),
+                  const Positioned(
+                    top: 32,
+                    left: 32,
+                    right: 32,
+                    child: ProfileHeader(userName: "Salma Afifa"),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                child: TabSelector(
+                  currentIndex: _currentTabIndex,
+                  onTabSelected: (index) {
+                    setState(() {
+                      _currentTabIndex = index;
+                    });
+                  },
                 ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: TabSelector(
-                currentIndex: _currentTabIndex,
-                onTabSelected: (index) {
-                  setState(() {
-                    _currentTabIndex = index;
-                  });
-                },
               ),
-            ),
 
-            Expanded(
-              child: IndexedStack(
-                index: _currentTabIndex,
-                children: const [WardrobePage(), ModelPage()],
+              Expanded(
+                child: IndexedStack(
+                  index: _currentTabIndex,
+                  children: const [WardrobePage(), ModelPage()],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
